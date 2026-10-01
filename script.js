@@ -383,3 +383,17 @@ helpBackdrop.addEventListener("click", (e) => {
 });
 
 newRound();
+
+let timeLeft = 30; // 30 seconds
+const timerDisplay = document.getElementById('timer');
+
+const countdown = setInterval(() => {
+  timeLeft--;
+  timerDisplay.innerText = `Time Left: ${timeLeft}s`;
+
+  if (timeLeft <= 0) {
+    clearInterval(countdown);
+    handleGameOver(false); // Player lost on time
+  }
+}, 1000);
+
